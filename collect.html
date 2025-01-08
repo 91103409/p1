@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的收藏</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="collection-container">
+        <div class="collection">
+            <img id="collection-image" src="圖1.jpg" alt="收藏物品">
+        </div>
+        <div class="buttons">
+            <button onclick="changeImage('圖1.jpg')">上一項收藏</button>
+            <button onclick="changeImage('圖2.jpg')">下一項收藏</button>
+        </div>
+    </div>
+
+    <script>
+        const images = ['圖1.jpg', '圖2.jpg', '圖3.jpg'];
+        let currentIndex = 0;
+
+        function changeImage(image) {
+            currentIndex = images.indexOf(image);
+            if (image === '圖1.jpg' && currentIndex > 0) {
+                document.getElementById('collection-image').src = images[currentIndex - 1];
+            } else if (image === '圖2.jpg' && currentIndex < images.length - 1) {
+                document.getElementById('collection-image').src = images[currentIndex + 1];
+            } else if (image === '圖3.jpg' && currentIndex < images.length - 1) {
+                document.getElementById('collection-image').src = images[currentIndex + 1];
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
